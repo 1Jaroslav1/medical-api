@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: medical-api
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    url: jdbc:h2:mem:medical
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  liquibase:
+    change-log: db/changelog/db.changelog-master.yaml
+    enabled: true
+  h2:
+    console:
+      enabled: true
+jwt:
+  secret:
+    key: medical0secret034n35h45jj345nkj3794gfrhfbjkdf83725
