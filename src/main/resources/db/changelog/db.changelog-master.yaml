@@ -2,3 +2,6 @@ databaseChangeLog:
    - include:
        file: 0_schema_init.yaml
        relativeToChangelogFile: true
+   - include:
+       file: 202310112224-add-chat-and-msg-tables.yaml
+       relativeToChangelogFile: true

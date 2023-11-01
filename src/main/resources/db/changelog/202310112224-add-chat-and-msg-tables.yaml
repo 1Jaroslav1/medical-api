@@ -1,0 +1,72 @@
+databaseChangeLog:
+  - changeSet:
+      id: 202310112224-add-chat-and-msg-tables
+      author: admin
+      changes:
+        - createTable:
+            tableName: chat
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: chat_pk
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(1024)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: 4
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: datetime
+        - createTable:
+            tableName: message
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: message_pk
+                    nullable: false
+              - column:
+                  name: question
+                  type: varchar(8192)
+              - column:
+                  name: answer
+                  type: varchar(8192)
+              - column:
+                  name: chat_id
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_question_at
+                  type: datetime
+              - column:
+                  name: created_answer_at
+                  type: datetime
+
+        - addForeignKeyConstraint:
+            constraintName: fk_chat_user
+            baseTableName: chat
+            baseColumnNames: creator_id
+            referencedTableName: _user
+            referencedColumnNames: id
+
+        - addForeignKeyConstraint:
+            constraintName: fk_message_chat
+            baseTableName: message
+            baseColumnNames: chat_id
+            referencedTableName: chat
+            referencedColumnNames: id
+

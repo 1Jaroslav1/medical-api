@@ -17,3 +17,8 @@ spring:
 jwt:
   secret:
     key: medical0secret034n35h45jj345nkj3794gfrhfbjkdf83725
+
+llm:
+  api:
+    url: http://127.0.0.1:8000
+#    url: https://5514-79-116-42-167.ngrok-free.app

@@ -18,11 +18,13 @@ databaseChangeLog:
                   name: username
                   type: varchar(1024)
                   constraints:
+                    unique: true
                     nullable: false
               - column:
                   name: email
                   type: varchar(256)
                   constraints:
+                    unique: true
                     nullable: false
               - column:
                   name: password
