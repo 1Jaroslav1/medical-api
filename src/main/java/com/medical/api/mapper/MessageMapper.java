@@ -36,6 +36,7 @@ public class MessageMapper {
             return null;
         }
         return MessageResponse.builder()
+                .chatId(message.getChat().getChatId())
                 .question(message.getQuestion())
                 .answer(message.getAnswer())
                 .createdQuestionAt(message.getCreatedQuestionAt())

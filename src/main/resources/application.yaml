@@ -1,19 +1,32 @@
 spring:
   application:
     name: medical-api
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
+#  datasource:
+#    url: jdbc:h2:mem:medical
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password:
+#  h2:
+#    console:
+#      enabled: true
   datasource:
-    url: jdbc:h2:mem:medical
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
+    url: jdbc:postgresql://localhost:5432/api
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
   liquibase:
     change-log: db/changelog/db.changelog-master.yaml
     enabled: true
-  h2:
-    console:
-      enabled: true
 jwt:
   secret:
     key: medical0secret034n35h45jj345nkj3794gfrhfbjkdf83725

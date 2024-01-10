@@ -5,6 +5,8 @@ import com.medical.api.dao.request.SignInRequest;
 import com.medical.api.dao.response.JwtAuthenticationResponse;
 import com.medical.api.entities.Role;
 import com.medical.api.entities.User;
+import com.medical.api.exception.EmailAlreadyExistException;
+import com.medical.api.exception.UsernameAlreadyExistException;
 import com.medical.api.repository.UserRepository;
 import com.medical.api.service.AuthenticationService;
 import com.medical.api.service.JwtService;
@@ -24,6 +26,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public JwtAuthenticationResponse signup(SignUpRequest request) {
+        User existingUser = userRepository.findByEmail(request.getEmail()).orElse(null);
+        if (existingUser != null) {
+            throw new EmailAlreadyExistException();
+        }
+        existingUser = userRepository.findByUsername(request.getUsername()).orElse(null);
+        if (existingUser != null) {
+            throw new UsernameAlreadyExistException();
+        }
         var user = User.builder()
                 .username(request.getUsername())
                 .email(request.getEmail())

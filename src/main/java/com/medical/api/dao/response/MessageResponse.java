@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MessageResponse {
+    private Integer chatId;
     private String question;
     private String answer;
     private LocalDateTime createdQuestionAt;

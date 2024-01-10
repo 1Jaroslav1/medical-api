@@ -20,7 +20,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: 4
+                  name: creator_id
                   type: integer
                   constraints:
                     nullable: false
@@ -40,10 +40,10 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: question
-                  type: varchar(8192)
+                  type: text
               - column:
                   name: answer
-                  type: varchar(8192)
+                  type: text
               - column:
                   name: chat_id
                   type: integer

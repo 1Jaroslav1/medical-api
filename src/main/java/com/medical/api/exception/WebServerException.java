@@ -1,5 +1,7 @@
 package com.medical.api.exception;
 
-public class WebServerException extends RuntimeException {
-    public WebServerException() {super("External server error");}
+public class WebServerException extends ApplicationException {
+    public WebServerException() {
+        super("External server error");
+    }
 }

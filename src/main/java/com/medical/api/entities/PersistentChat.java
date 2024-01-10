@@ -20,6 +20,7 @@ public class PersistentChat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(length = 1024)
     private String name;
 
     @OneToMany(mappedBy = "persistentChat", cascade = CascadeType.ALL, fetch = FetchType.EAGER)

@@ -5,14 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class Chat {
-    private Integer chatId;
+@NoArgsConstructor
+public class AppUser {
     private String name;
-    private LocalDateTime createdAt;
+    private String email;
 }

@@ -19,7 +19,7 @@ import java.util.function.Function;
 @Service
 public class JwtServiceImpl implements JwtService {
 
-    private static final int EXPIRATION_TIME = 1000 * 60 * 24;
+    private static final int EXPIRATION_TIME = 1000 * 60 * 60 * 24;
 
     @Value("${jwt.secret.key}")
     private String jwtSecretKey;

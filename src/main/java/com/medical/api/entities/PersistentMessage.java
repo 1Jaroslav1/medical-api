@@ -19,8 +19,10 @@ public class PersistentMessage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(length = 8192)
     private String question;
 
+    @Column(length = 8192)
     private String answer;
 
     @ManyToOne(fetch = FetchType.LAZY)
